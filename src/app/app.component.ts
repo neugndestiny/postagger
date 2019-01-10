@@ -785,26 +785,27 @@ export class AppComponent {
     // this.tree = this.d3.layout.tree().nodeSize([70, 40]);
   }
 
-  createRoot() {
-    this.diagonal = this.d3.svg.diagonal()
-      .projection(function (d) {
-        return [d.x + this.rectW / 2, d.y + this.rectH / 2];
-      });
+  // This method cause an error
+  // createRoot() {
+  //   this.diagonal = this.d3.svg.diagonal()
+  //     .projection(function (d) {
+  //       return [d.x + this.rectW / 2, d.y + this.rectH / 2];
+  //     });
 
-    this.svg = this.d3.select('#body').append('svg').attr('width', 1000).attr('height', 1000)
-      .call(this.zm = this.d3.behavior.zoom().scaleExtent([1, 3]).on('zoom', this.redraw)).append('g')
-      .attr('transform', 'translate(' + 350 + ',' + 20 + ')');
+  //   this.svg = this.d3.select('#body').append('svg').attr('width', 1000).attr('height', 1000)
+  //     .call(this.zm = this.d3.behavior.zoom().scaleExtent([1, 3]).on('zoom', this.redraw)).append('g')
+  //     .attr('transform', 'translate(' + 350 + ',' + 20 + ')');
 
-    this.zm.translate([350, 20]);
+  //   this.zm.translate([350, 20]);
 
-    this.root.x0 = 0;
-    this.root.y0 = this.height / 2;
+  //   this.root.x0 = 0;
+  //   this.root.y0 = this.height / 2;
 
-    this.root.children.forEach(this.collapse);
-    this.update(this.root);
+  //   this.root.children.forEach(this.collapse);
+  //   this.update(this.root);
 
-    this.d3.select('#body').style('height', '800px');
-  }
+  //   this.d3.select('#body').style('height', '800px');
+  // }
 
   collapse() {
 
